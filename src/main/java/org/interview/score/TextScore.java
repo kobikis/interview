@@ -21,14 +21,14 @@ public class TextScore {
 
         logger.info("text: " + text + ", prefixString: " + prefixString + ", suffixString: " + suffixString);
 
-        int textLen = text.length();
-        int suffixLen = suffixString.length();
-        int prefixLen = prefixString.length();
+        int textLength = text.length();
+        int suffixLength = suffixString.length();
+        int prefixLength = prefixString.length();
 
         Map<String, Integer> scores = new HashMap<>();
 
-        for(int i = 0; i < textLen; i++) {
-            for(int j = i+1; j <= textLen; j++) {
+        for(int i = 0; i < textLength; i++) {
+            for(int j = i+1; j <= textLength; j++) {
 
                 int prefixSum = 0;
                 int suffixSum = 0;
@@ -37,16 +37,16 @@ public class TextScore {
 
                 logger.info("---------------------------------------------------------------");
                 for(int k = 0; k < subLength; k++) {
-                    if(k < prefixLen) {
-                        logger.info("prefixString: " + sub + ", " + sub.substring(0,k+1) + " ? " + prefixString.substring(prefixLen-k-1, prefixLen));
-                        if(sub.substring(0,k+1).equals(prefixString.substring(prefixLen-k-1, prefixLen))) {
+                    if(k < prefixLength) {
+                        logger.info("prefixString: " + sub + ", " + sub.substring(0,k+1) + " ? " + prefixString.substring(prefixLength-k-1, prefixLength));
+                        if(sub.substring(0,k+1).equals(prefixString.substring(prefixLength-k-1, prefixLength))) {
                             prefixSum = Math.max(k+1,prefixSum);
                         }
                     }
                 }
                 logger.info("####################################################################");
                 for(int k = 0; k < subLength; k++) {
-                    if(subLength - k <= suffixLen) {
+                    if(subLength - k <= suffixLength) {
                         logger.info("suffixString: " + sub + ", " + sub.substring(k) + " ? " + suffixString.substring(0, subLength-k));
                         if(sub.substring(k).equals(suffixString.substring(0, subLength-k))) {
                             suffixSum = Math.max(subLength-k, suffixSum);
