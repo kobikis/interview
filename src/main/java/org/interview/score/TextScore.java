@@ -35,19 +35,15 @@ public class TextScore {
                 String sub = text.substring(i,j);
                 int subLength = sub.length();
 
-                logger.info("---------------------------------------------------------------");
                 for(int k = 0; k < subLength; k++) {
                     if(k < prefixLength) {
-                        logger.info("prefixString: " + sub + ", " + sub.substring(0,k+1) + " ? " + prefixString.substring(prefixLength-k-1, prefixLength));
+                        logger.finest("prefixString: " + sub + ", " + sub.substring(0,k+1) + " ? " + prefixString.substring(prefixLength-k-1, prefixLength));
                         if(sub.substring(0,k+1).equals(prefixString.substring(prefixLength-k-1, prefixLength))) {
                             prefixSum = Math.max(k+1,prefixSum);
                         }
                     }
-                }
-                logger.info("####################################################################");
-                for(int k = 0; k < subLength; k++) {
                     if(subLength - k <= suffixLength) {
-                        logger.info("suffixString: " + sub + ", " + sub.substring(k) + " ? " + suffixString.substring(0, subLength-k));
+                        logger.finest("suffixString: " + sub + ", " + sub.substring(k) + " ? " + suffixString.substring(0, subLength-k));
                         if(sub.substring(k).equals(suffixString.substring(0, subLength-k))) {
                             suffixSum = Math.max(subLength-k, suffixSum);
                         }
@@ -71,7 +67,7 @@ public class TextScore {
                         (e1, e2) -> e1, LinkedHashMap::new));
 
 
-        logger.info(String.valueOf(results));
+        logger.finest(String.valueOf(results));
 
         return new SimpleImmutableEntry<>(results.entrySet().stream().iterator().next());
     }
