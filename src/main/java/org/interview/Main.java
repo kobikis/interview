@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         TextScore textScore = new TextScore();
-        SimpleImmutableEntry<String, Integer> match = textScore.score("engine", "raven", "ginkgo");
-//        SimpleImmutableEntry<String, Integer> match = textScore.score("nothing", "bruno", "ingenious");
+//        SimpleImmutableEntry<String, Integer> match = textScore.score("engine", "raven", "ginkgo");
+        SimpleImmutableEntry<String, Integer> match = textScore.score("nothing", "bruno", "ingenious");
 //        SimpleImmutableEntry<String, Integer> match = textScore.score("ab", "b", "a");
 
         logger.info("matched string: " + match.getKey() + ", score: " + match.getValue() );

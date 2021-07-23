@@ -37,9 +37,9 @@ public class TextScore {
 
                 for(int k = 0; k < subLength; k++) {
                     if(k < prefixLength) {
-                        logger.finest("prefixString: " + sub + ", " + sub.substring(0,k+1) + " ? " + prefixString.substring(prefixLength-k-1, prefixLength));
+                        logger.finest("prefixString: " + sub + ", " + sub.substring(0, k+1) + " ? " + prefixString.substring(prefixLength-k-1, prefixLength));
                         if(sub.substring(0,k+1).equals(prefixString.substring(prefixLength-k-1, prefixLength))) {
-                            prefixSum = Math.max(k+1,prefixSum);
+                            prefixSum = Math.max(k+1, prefixSum);
                         }
                     }
                     if(subLength - k <= suffixLength) {
