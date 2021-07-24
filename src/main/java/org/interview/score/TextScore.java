@@ -1,8 +1,5 @@
 package org.interview.score;
 
-import org.interview.utils.Utils;
-
-
 import java.util.AbstractMap.SimpleImmutableEntry;
 import java.util.Collections;
 import java.util.HashMap;
