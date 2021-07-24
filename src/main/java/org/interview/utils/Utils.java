@@ -11,16 +11,19 @@ public class Utils {
 
 
     public static  void validate(String text, String prefix, String suffix){
+        if( text ==null || prefix == null || suffix == null)
+            throw new IllegalArgumentException("String should it be null");
+
         String errorMsg = "String must contains lowercase English alphabetic letters ascii [a-z] only";
         if(!validateLowerCase(text) || !validateLowerCase(prefix) || !validateLowerCase(suffix)) {
             logger.severe(errorMsg);
-            System.exit(1);
+            throw new IllegalArgumentException(errorMsg);
         }
 
         String errorSizeMsg = "String size should be between 1 and 50";
         if(!validateStringSize(text) || !validateStringSize(prefix) || !validateStringSize(suffix)) {
             logger.severe(errorSizeMsg);
-            System.exit(1);
+            throw new IllegalArgumentException(errorMsg);
         }
     }
 
