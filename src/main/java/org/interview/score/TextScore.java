@@ -11,13 +11,15 @@ import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import static org.interview.utils.Utils.validate;
+
 
 public class TextScore {
     private static Logger logger = Logger.getLogger(TextScore.class.getSimpleName());
 
     public SimpleImmutableEntry<String, Integer> score(String text, String prefixString, String suffixString) {
 
-        Utils.validate(text, prefixString, suffixString);
+        validate(text, prefixString, suffixString);
 
         logger.info("text: " + text + ", prefixString: " + prefixString + ", suffixString: " + suffixString);
 
@@ -49,7 +51,6 @@ public class TextScore {
                         }
                     }
                 }
-
                 if(scores.containsKey(sub)) {
                     scores.put(sub, Math.max(scores.get(sub), prefixSum + suffixSum));
                 } else {
