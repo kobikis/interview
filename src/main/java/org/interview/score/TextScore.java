@@ -32,7 +32,7 @@ public class TextScore {
 
                 int prefixSum = 0;
                 int suffixSum = 0;
-                String sub = text.substring(i,j);
+                String sub = text.substring(i, j);
                 int subLength = sub.length();
 
                 for(int k = 0; k < subLength; k++) {
